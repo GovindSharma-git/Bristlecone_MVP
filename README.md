@@ -22,7 +22,7 @@ A risk-analysis dashboard that prevents supply chain managers from manually hunt
 2. **Pandas Filtering:** Applies deterministic math (`Current_Stock < Reorder_Level`) to isolate only the items posing an immediate threat to production.
 3. **AI Summarization:** Passes the filtered subset to a high-reasoning LLM to generate a strict, 3-bullet-point professional summary of the business risks.
 
-# ✉️ Automated Supplier Email Copilot
+# Project 2: ✉️ Automated Supplier Email Copilot
 
 An enterprise-grade Minimum Viable Product (MVP) designed to automate procurement and supply chain communication. This application instantly ingests delayed shipment data and utilizes Generative AI to draft highly customized, context-aware follow-up emails for suppliers.
 
