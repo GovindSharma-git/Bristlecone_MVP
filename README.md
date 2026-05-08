@@ -22,36 +22,37 @@ A risk-analysis dashboard that prevents supply chain managers from manually hunt
 2. **Pandas Filtering:** Applies deterministic math (`Current_Stock < Reorder_Level`) to isolate only the items posing an immediate threat to production.
 3. **AI Summarization:** Passes the filtered subset to a high-reasoning LLM to generate a strict, 3-bullet-point professional summary of the business risks.
 
-### Run Locally
-```bash
-streamlit run app.py
 # ✉️ Automated Supplier Email Copilot
 
 An enterprise-grade Minimum Viable Product (MVP) designed to automate procurement and supply chain communication. This application instantly ingests delayed shipment data and utilizes Generative AI to draft highly customized, context-aware follow-up emails for suppliers.
 
-## 🚀 Business Impact
+## 🚀 The Business Problem
 Procurement teams waste countless hours manually drafting repetitive follow-up emails for delayed inventory. This Copilot turns a multi-hour administrative bottleneck into a single-click automated workflow, allowing supply chain managers to focus on strategic negotiations rather than manual data entry.
 
-## 🏗️ Technical Architecture & API Routing
+## 🏗️ Technical Architecture
 This application is built with a lightweight Python data stack and utilizes a custom API routing strategy to achieve enterprise-level reasoning at zero development cost.
 
 * **Frontend:** Streamlit (Provides a clean, interactive UI for immediate deployment)
 * **Data Engine:** Pandas (Handles data ingestion and iteration)
-* **LLM Integration:** Built using the official `openai` Python SDK to maintain enterprise compliance, but dynamically routed through **Groq's** high-speed inference servers via a modified `base_url`. 
-* **Model Selection:** Capable of running massive open-weight models (like LLaMA-3 or GPT-OSS-120B) at ultra-low latency, proving the ability to optimize compute costs while maximizing reasoning power.
+* **LLM Integration:** Built using the official `openai` Python SDK to maintain enterprise compliance, but dynamically routed through **Groq's** high-speed inference servers via a custom `base_url`. 
+* **Model Used:** Configured to run OpenAI's massive `gpt-oss-120b` open-weight model to ensure top-tier reasoning and professional tone, while leveraging Groq's hardware for ultra-low latency.
 
-## ⚙️ How It Works (The Pipeline)
-1. **Data Ingestion & Iteration:** The script reads a Pandas DataFrame of active delayed shipments and iterates through the dataset row by row.
+## ⚙️ How It Works
+1. **Data Iteration:** The script reads a Pandas DataFrame of active delayed shipments and iterates through the dataset row by row.
 2. **Dynamic Prompt Injection:** For every delayed item, the application constructs a highly specific prompt injecting the exact `Supplier Name`, `Item`, `Days Late`, and `Business Impact Level`.
-3. **Mass Generation:** The LLM processes these specific parameters to instantly generate customized, professional, and firm email drafts, rendering them in an interactive dropdown UI.
+3. **Mass Generation:** The 120B model processes these specific parameters to instantly generate customized, professional email drafts, rendering them in an interactive dropdown UI.
 
 ## 🛠️ Local Setup Instructions
 
 **1. Clone the repository and navigate to the directory:**
-```bash
-git clone [https://github.com/yourusername/email-copilot-mvp.git](https://github.com/yourusername/email-copilot-mvp.git)
-cd email-copilot-mvp
-# Install dependencies
-pip install streamlit pandas openai
+`git clone https://github.com/yourusername/email-copilot-mvp.git`
+`cd email-copilot-mvp`
 
-# Note: You will need a free API key from Groq (console.groq.com) to run the AI features.
+**2. Install the required dependencies:**
+`pip install streamlit pandas openai`
+
+**3. API Key Configuration:**
+To run the AI features, you will need a free API key from [Groq](https://console.groq.com). The application will securely prompt you for this key via the Streamlit interface upon launch.
+
+**4. Run the Application:**
+`streamlit run copilot.py`
